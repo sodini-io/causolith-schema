@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/sodini-io/project-canon-schema/main/schemas/0.1-draft.4/decision-content.schema.json",
+  "title": "Project Canon complete decision content (private draft 0.1-draft.4)",
+  "type": "object", "additionalProperties": false,
+  "required": ["title", "context", "choice", "rationale", "alternatives", "consequences", "clauses", "exceptions", "extensions"],
+  "properties": {
+    "title": {"type": "string", "minLength": 1, "maxLength": 200},
+    "context": {"type": "string", "maxLength": 65536}, "choice": {"type": "string", "maxLength": 65536}, "rationale": {"type": "string", "maxLength": 65536},
+    "alternatives": {"type": "array", "maxItems": 100, "items": {"type": "string", "maxLength": 65536}},
+    "consequences": {"type": "array", "maxItems": 100, "items": {"type": "string", "maxLength": 65536}},
+    "clauses": {"type": "array", "maxItems": 100, "items": {"$ref": "#/$defs/clause"}},
+    "exceptions": {"type": "array", "maxItems": 100, "items": {"$ref": "#/$defs/exception"}},
+    "affected_area_ids": {"type": "array", "maxItems": 100, "items": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}},
+    "extensions": {"type": "object", "additionalProperties": true}
+  },
+  "$defs": {
+    "clause": {"type": "object", "additionalProperties": false, "required": ["id", "text", "scope"], "properties": {"id": {"type": "string", "minLength": 1}, "text": {"type": "string", "maxLength": 65536}, "scope": {"enum": ["repository", "area"]}, "area_id": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "exception_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}}, "allOf": [{"if": {"properties": {"scope": {"const": "area"}}}, "then": {"required": ["area_id"]}}, {"if": {"properties": {"scope": {"const": "repository"}}}, "then": {"not": {"required": ["area_id"]}}}]},
+    "exception": {"type": "object", "additionalProperties": false, "required": ["id", "text", "scope"], "properties": {"id": {"type": "string", "minLength": 1}, "text": {"type": "string", "maxLength": 65536}, "scope": {"enum": ["repository", "area"]}, "area_id": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "source_standard": {"$ref": "#/$defs/reference"}}, "allOf": [{"if": {"properties": {"scope": {"const": "area"}}}, "then": {"required": ["area_id"]}}, {"if": {"properties": {"scope": {"const": "repository"}}}, "then": {"not": {"required": ["area_id"]}}}]},
+    "reference": {"type": "object", "additionalProperties": false, "required": ["decision_id", "clause_id"], "properties": {"decision_id": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "clause_id": {"type": "string", "minLength": 1}}}
+  }
+}

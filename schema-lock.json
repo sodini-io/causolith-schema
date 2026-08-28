@@ -1,0 +1,27 @@
+{
+  "schema_lock_version": 1,
+  "frozen_drafts": {
+    "0.1-draft.1/attestation.schema.json": "e3071af3228319a788745ddbc5d6956e0e23723f2fd5b5cda8c93db06dd4ebdf",
+    "0.1-draft.1/canon.schema.json": "5e1d66edd06a4844312ed92df0e7aedcb3f3046c0c175506ef4578f9344141f7",
+    "0.1-draft.1/decision-content.schema.json": "4b43beef26a09193e2c02ed30ea77dbdd9cbf0c2629e8941247a1b6a8015bfea",
+    "0.1-draft.1/operation.schema.json": "975531db24da00e6f63c8e9235084c4bc6c8eafea554551e4c8e66ecd1e53412",
+    "0.1-draft.2/attestation.schema.json": "bcc41e5cb5fd8dea8c17dabb9748ea108d7f6e0bd0cc5497bebf1ae4cd25b0d8",
+    "0.1-draft.2/canon.schema.json": "1b01b699c5988a8a912f6f70de236aaf4967d78e659e17359700530d7a46721a",
+    "0.1-draft.2/decision-content.schema.json": "38c392b10a2f344b1c6f850ba605cd5b15b198c37976c066c8c886e91da35bd5",
+    "0.1-draft.2/operation.schema.json": "7b4f0ecd6d26887c06ec03ee866f68d535c4dd21f01f91f7f7e5aacd116687af",
+    "0.1-draft.3/attestation.schema.json": "86be4791c62557a3ac5bca51f880d21792cfa1dfd1370a7c1736454a403a3e45",
+    "0.1-draft.3/canon.schema.json": "f76f8c4e7e226ffcd592a3a106fc82dc71a14fce1584a07463d5014270acf455",
+    "0.1-draft.3/decision-content.schema.json": "105bbb3842e081921c19dca5652e7c9a37b0edd9174494b9278779c1731bc135",
+    "0.1-draft.3/evidence.schema.json": "b47202d0b78119d3a7467070ba41cc9c4d57f19997ddb1762ffb4b64c34a3f2a",
+    "0.1-draft.3/operation.schema.json": "63532d02752a7c93b38ac888ee8ee1bfe4ecbcbabfee58c901dfd972f7111d68"
+  },
+  "draft4_sources": {
+    "attestation.schema.json": "bef19402bcb3ddfa38771868c6cc51b006b0589fadbcf45d25ff37b9719c7bb2",
+    "canon.schema.json": "7f49711bfd559598447e50ba9dcd9898485368bb8ef74a48daae49fe4840eae4",
+    "decision-content.schema.json": "5ee17e0caf8e0d3c70d9717f8e8065023a44ab5091cd645cf4e386ca8764c057",
+    "evidence.schema.json": "9fbf1ff5a15cb4073e7836f0192d78e4825c7233220081e5e923a15f7b5a1e03",
+    "graph.schema.json": "4b6c908788c49f5f1540db365ce1b089a5d54f2b52c50382a8090b354bbf6e37",
+    "operation.schema.json": "2621f59c4761ab5208616c00eca80b92baf386c1aa62ef32f33e28f49c6a304a",
+    "work.schema.json": "d8b8cc3ae1d08a53091600bb7d88ebebcfda02a86de7094063e67ee7fe39216d"
+  }
+}

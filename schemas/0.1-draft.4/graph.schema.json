@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/sodini-io/project-canon-schema/main/schemas/0.1-draft.4/graph.schema.json",
+  "title": "Project Canon draft 4 graph payloads",
+  "type": "object", "additionalProperties": true,
+  "$defs": {
+    "area": {"type": "object", "additionalProperties": false, "required": ["kind", "state", "name", "summary", "aliases", "extensions"], "properties": {"kind": {"enum": ["product", "system"]}, "state": {"enum": ["active", "archived"]}, "name": {"type": "string", "minLength": 1, "maxLength": 200}, "summary": {"type": "string", "maxLength": 65536}, "aliases": {"type": "array", "maxItems": 100, "items": {"type": "string"}}, "parent_id": {"type": ["string", "null"], "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "extensions": {"type": "object", "additionalProperties": true}}},
+    "tag": {"type": "object", "additionalProperties": false, "required": ["state", "name", "aliases", "extensions"], "properties": {"state": {"enum": ["active", "merged"]}, "name": {"type": "string", "minLength": 1, "maxLength": 200}, "aliases": {"type": "array", "maxItems": 100, "items": {"type": "string"}}, "merged_into_tag_id": {"type": ["string", "null"], "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "extensions": {"type": "object", "additionalProperties": true}}},
+    "relation": {"type": "object", "additionalProperties": false, "required": ["kind", "from_id", "to_id", "extensions"], "properties": {"kind": {"enum": ["applies_to", "implements", "conflicts_with", "depends_on", "tagged_with"]}, "from_id": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "to_id": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}, "extensions": {"type": "object", "additionalProperties": true}}}
+  }
+}

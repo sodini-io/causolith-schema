@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/sodini-io/project-canon-schema/main/schemas/0.1-draft.4/attestation.schema.json",
+  "title": "Project Canon detached DSSE attestation (private draft 0.1-draft.4)",
+  "type": "object", "additionalProperties": false,
+  "required": ["payloadType", "payload", "signatures"],
+  "properties": {
+    "payloadType": {"const": "application/vnd.projectcanon.operation-attestation+json"}, "payload": {"type": "string", "contentEncoding": "base64"},
+    "signatures": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["keyid", "sig"], "properties": {"keyid": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"}, "sig": {"type": "string", "minLength": 88, "maxLength": 88, "contentEncoding": "base64"}}}}
+  }
+}

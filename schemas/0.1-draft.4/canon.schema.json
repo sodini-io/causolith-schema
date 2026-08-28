@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/sodini-io/project-canon-schema/main/schemas/0.1-draft.4/canon.schema.json",
+  "title": "Project Canon manifest (private draft 0.1-draft.4)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_version", "canon_id", "scope", "name", "key_prefix", "created_at", "required_capabilities", "optional_capabilities", "extensions"],
+  "properties": {
+    "$schema": {"type": "string", "format": "uri"},
+    "format_version": {"const": "0.1-draft.4"},
+    "canon_id": {"type": "string", "format": "uuid", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"},
+    "scope": {"const": "repository"},
+    "name": {"type": "string", "minLength": 1},
+    "key_prefix": {"type": "string", "pattern": "^[A-Z][A-Z0-9]{2,7}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "required_capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "optional_capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "extensions": {"type": "object", "additionalProperties": true}
+  }
+}
